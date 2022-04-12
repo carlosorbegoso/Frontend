@@ -14,7 +14,7 @@
 #Express server =======================================
 FROM node:16-alpine3.14 as express-server
 WORKDIR /app
-COPY /src/server /app
+COPY /src /app
 RUN npm install --production --silent
 
 #Final image ========================================
