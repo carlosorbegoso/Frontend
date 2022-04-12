@@ -1,6 +1,6 @@
 
 # Angular App ========================================
-FROM frontend/angular-cli as angular-app
+FROM frontend as angular-app
 LABEL authors="Carlos Orbegoso"
 # Copy and install the Angular app
 WORKDIR /app
