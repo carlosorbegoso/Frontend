@@ -20,7 +20,7 @@ RUN npm install --production --silent
 #Final image ========================================
 FROM node:16-alpine3.14
 RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /frontend/src/app
 COPY --from=express-server /app /usr/src/app
 COPY --from=angular-app /app/dist /usr/src/app
 ENV PORT 80
