@@ -21,7 +21,7 @@ RUN npm install --production --silent
 FROM node:16-alpine3.14
 RUN mkdir -p /usr/src/app
 WORKDIR /frontend/src/app
-COPY --from=express-server /app /usr/src/app
-COPY --from=angular-app /app/dist /usr/src/app
+COPY --from=express-server /app /frontend/src/app
+COPY --from=angular-app /app/dist /frontend/src/app
 ENV PORT 80
 CMD [ "node", "index.js" ]
