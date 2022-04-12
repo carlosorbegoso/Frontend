@@ -1,19 +1,14 @@
-#Primera Etapa
-FROM node:10-alpine as build-step
-
-RUN mkdir -p /app
+FROM node:v16.14.2 AS build-env
 
 WORKDIR /app
 
-COPY package.json /app
-
+COPY ./package.json ./package.json
+COPY ./package-lock.json ./package-lock.json
 RUN npm install
 
-COPY . /app
-
-RUN npm run build --prod
-
-#Segunda Etapa
-FROM nginx:1.17.1-alpine
-	#Si estas utilizando otra aplicacion cambia PokeApp por el nombre de tu app
-COPY --from=build-step /app/dist/frontend /usr/share/nginx/html
+COPY . ./
+RUN npm run build
+FROM nginx:1.13.9-alpine
+COPY --from=build-env /app/dist/frontend/ /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
