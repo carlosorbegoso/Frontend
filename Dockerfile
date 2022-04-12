@@ -19,7 +19,7 @@ RUN npm install --production --silent
 
 #Final image ========================================
 FROM node:16-alpine3.14
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /frontend/src/app
 WORKDIR /frontend/src/app
 COPY --from=express-server /app /frontend/src/app
 COPY --from=angular-app /app/dist /frontend/src/app
