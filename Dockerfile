@@ -1,6 +1,12 @@
+# FROM node:16-alpine3.14 AS build-env
+
+# COPY ./app
+# WORKDIR /app
+# RUN npm install && npm run build:prod && rm -rf node_modules/FROM nginx:1.17.9-alpine as runtime
+# COPY --from=build /app/default.conf/etc/nginx/conf.d/COPY--from=build /app/dist//var/www
 
 # Angular App ========================================
-FROM frontend as angular-app
+FROM node:16-alpine3.14 AS build-env
 LABEL authors="Carlos Orbegoso"
 # Copy and install the Angular app
 WORKDIR /app
