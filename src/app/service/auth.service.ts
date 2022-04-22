@@ -17,23 +17,8 @@ export class AuthService {
     return this.HttpClient.post<RequestAuth>(this.URL + "login", auth);
   }
 
-  public logout(token: String) {
+  public logoutBackend(token: String) {
     return this.HttpClient.post(`${this.URL}logout?token=${token}`, null);
-  }
-
-  public logout2(token: string) {
-    let httpParams = new HttpParams(
-      {
-        fromObject: {
-          token: token
-        }
-      }
-    );
-    return this.HttpClient.post(this.URL + 'logout', httpParams.toString(),
-      {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-      });
   }
 
 

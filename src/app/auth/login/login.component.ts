@@ -22,10 +22,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private tokenService: TokenService,
     private router: Router
-  ) {
-   
-   }
-
+  ) {}
   ngOnInit(): void {
     if(this.tokenService.getToken()){
       this.isLogged = true;

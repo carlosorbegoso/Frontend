@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu/menu.component';
 //user
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UserListComponent } from './user/user-list/user-list.component';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
