@@ -7,13 +7,23 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
+
+
+
+  events: string[] = [];
+  opened: boolean;
+
   isLogged = false;
   avatar   = '';
   nameUser = '';
+  
  
 
-  constructor(private tokenService: TokenService,private authService: AuthService) { }
+  constructor(
+    private tokenService: TokenService,private authService: AuthService) { }
+
 
   ngOnInit(): void {
     if(this.tokenService.getToken){

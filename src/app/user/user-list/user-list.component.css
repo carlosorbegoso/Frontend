@@ -1,0 +1,16 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-tab-group {
+    margin-bottom: 48px;
+  }
+  .menu{
+    position:fixed;
+  }
