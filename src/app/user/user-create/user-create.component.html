@@ -1,1 +1,63 @@
 <app-menu></app-menu>
+<form valid>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title> Users Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Username" required>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Avatar">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="mobile">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field matInput  class="full-width" [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="floatLabelControl.value">
+                        <mat-select required>
+                            <mat-option>-- None --</mat-option>
+                            <mat-option value="option">Option</mat-option>
+                        </mat-select>
+                        <mat-label>
+                            <mat-icon>admin_panel_settings</mat-icon> <b> Role</b> <i> user</i>
+                        </mat-label>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+
+</form>

@@ -16,26 +16,28 @@ export class MenuComponent implements OnInit {
   opened: boolean;
 
   isLogged = false;
-  avatar   = '';
+  avatar = '';
   nameUser = '';
-  
- 
 
   constructor(
-    private tokenService: TokenService,private authService: AuthService) { }
+    private tokenService: TokenService, private authService: AuthService) { }
 
 
   ngOnInit(): void {
-    if(this.tokenService.getToken){
+    if (this.tokenService.getToken) {
       this.isLogged = true;
       this.nameUser = this.tokenService.getUserName();
-      this.avatar   = this.tokenService.getAvatar();
+      this.avatar = this.tokenService.getAvatar();
     }
   }
   onLogOut() {
-    this.authService.logoutBackend(this.tokenService.getToken());
-    this.tokenService.logOutFronted();
-    window.location.reload();
+    this.authService.logoutBackend(this.tokenService.getToken()).subscribe(
+      (data) => {
+        this.tokenService.logOutFronted();
+        window.location.reload();
+      }
+    );
+
   }
 
 }
