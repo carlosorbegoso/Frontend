@@ -1,16 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <a class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <span style="color:#4DB2EE ;font-family:'Arial Black';"> SKYBLUE</span>
                 <span style="color:#aaa;"> | </span>
                 <b style="color:black"></b>
 
-                <b style="color:black;">{{nameUser}}</b>
+                <b style="color:white;">{{nameUser}}</b>
             </a>
             <span class="menu-spacer"></span>
-            <img class="img-avatar" src="{{avatar}}">
-            <button type="button" mat-button (click)="drawer.toggle()">
+            <img class="img-avatar" src="{{avatar}}" alt="logo">
+            <button type="button" mat-button (click)="drawer.toggle()" name="btnMenu" id="btnMenu">
                 <mat-icon>menu</mat-icon>
             </button>
 

@@ -33,6 +33,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatMenuModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

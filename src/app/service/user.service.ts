@@ -8,7 +8,7 @@ import { SysUser } from '../models/response/sys-user';
   providedIn: 'root'
 })
 export class UserService {
-  private URL = `${environment.API_URL}/user`;
+  private URL = `${environment.API_URL}/api/user`;
   constructor(private httpClient: HttpClient) { }
 
   public userFindAll():Observable<any>{
