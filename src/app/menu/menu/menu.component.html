@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <a href="/" class="navbar-brand">
+            <a routerLink="/" class="navbar-brand">
                 <span style="color:#4DB2EE ;font-family:'Arial Black';"> SKYBLUE</span>
                 <span style="color:#aaa;"> | </span>
                 <b style="color:black"></b>
@@ -17,10 +17,12 @@
         </mat-toolbar>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner style="top:50%;left:50%;"></mat-spinner>
+</div>
 <mat-drawer #drawer class="sidenav" mode="side">
     <mat-toolbar>
-        <a href="/" type="button" mat-button>
+        <a routerLink="/" type="button" mat-button>
             <mat-icon>
                 home
             </mat-icon>
@@ -28,7 +30,7 @@
         <span class="sub-menu"></span>
         Menu
         <span class="sub-menu"></span>
-        <button type="button" (click)="onLogOut()" mat-button>
+        <button *ngIf="isLogged" type="button" mat-button (click)="onLogOut()" >
             <mat-icon>
                 logout
             </mat-icon>
@@ -40,12 +42,12 @@
             <button mat-menu-item>
                 <mat-icon> engineering</mat-icon>
                 <span>MANTENIMIETOS</span>
-              </button>
-            <mat-menu #users="matMenu" xPosition="after"> 
-                <a href="user/list" mat-menu-item type="button" >
-                    <mat-icon >
+            </button>
+            <mat-menu #users="matMenu" xPosition="after">
+                <a routerLink="/auth/user" mat-menu-item type="button">
+                    <mat-icon>
                         person
-                    </mat-icon>  
+                    </mat-icon>
                     <span>USUARIOS</span>
                 </a>
                 <button mat-menu-item>
@@ -54,9 +56,9 @@
                     </mat-icon>
                     <span>VEHICULOS</span>
                 </button>
-                    
+
             </mat-menu>
-            
+
         </a>
     </mat-nav-list>
     <mat-divider></mat-divider>

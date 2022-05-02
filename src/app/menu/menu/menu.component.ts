@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenService } from 'src/app/service/token.service';
+import { LoaderService } from 'src/app/utils/loader.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,9 +11,6 @@ import { TokenService } from 'src/app/service/token.service';
 })
 
 export class MenuComponent implements OnInit {
-
-
-
   events: string[] = [];
   opened: boolean;
 
@@ -20,14 +19,18 @@ export class MenuComponent implements OnInit {
   nameUser = '';
 
   constructor(
-    private tokenService: TokenService, private authService: AuthService) { }
-
+    public loaderService: LoaderService,
+    private router: Router,
+    private tokenService: TokenService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken) {
       this.isLogged = true;
       this.nameUser = this.tokenService.getUserName();
       this.avatar = this.tokenService.getAvatar();
+    }else{
+      this.isLogged = false;
     }
   }
   onLogOut() {
@@ -35,6 +38,7 @@ export class MenuComponent implements OnInit {
       (data) => {
         this.tokenService.logOutFronted();
         window.location.reload();
+        this.router.navigate(['/'])
       }
     );
 

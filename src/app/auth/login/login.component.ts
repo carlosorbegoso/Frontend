@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.data.roles);
         this.tokenService.setAvatar(data.data.avatar);
         this.roles = data.roles;
+        this.router.navigate(['auth/login'])
       },message => {
         this.isLogged = false;
         this.isLoginFail = true;

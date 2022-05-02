@@ -34,17 +34,21 @@ export class UserCreateComponent implements OnInit {
     this.getRole();
   }
   save(user: SysUser): void {
+
     this.userService.save(user).subscribe(
       (data: any) => {
         try {
           if(data.status == 500)throw data.message
-          this.notificationService.showSuccess("Data shown successfully !!", data.message);
+          this.notificationService.showSuccess("exit", data.message);
         } catch (e) {
-          this.notificationService.showError('Hello world!', 'Toastr fun!');
+          this.notificationService.showError('Error', data.message);
         }
-       
+      },error => {
+        this.notificationService.showError('Error', "User not authorization");
       }
-    )
+    ),err =>{
+      this.notificationService.showError('Error', err.Error);
+    }
 
   }
   getRole(): void {

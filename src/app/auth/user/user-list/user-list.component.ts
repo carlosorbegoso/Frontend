@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
 import { SysUser } from 'src/app/models/response/sys-user';
+import { AuthService } from 'src/app/service/auth.service';
+import { TokenService } from 'src/app/service/token.service';
 import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-user-list',
@@ -12,13 +14,19 @@ import { UserService } from 'src/app/service/user.service';
 export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['username', 'mobile', 'email', 'createTime'];
   dataUsers = new MatTableDataSource;
-
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  isLogged: boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private tokenService: TokenService,
+		private authService: AuthService,
+    private userService: UserService) { }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+			this.isLogged = true;
+		}
     this.findAll();
    
   }
@@ -26,7 +34,7 @@ export class UserListComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataUsers.filter = filterValue.trim().toLowerCase();
   }
-  
+
   findAll(){
     this.userService.userFindAll().subscribe(
       (data: any) => {

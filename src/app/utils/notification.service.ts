@@ -13,7 +13,7 @@ export class NotificationService {
   }
 
   showError(message, title) {
-    this.toastr.error(message, title),{timeout: 3000}
+    this.toastr.error(message, title),{positionClass:'toast-bottom-center'}
   }
 
   showInfo(message, title) {
