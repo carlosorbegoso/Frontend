@@ -20,11 +20,6 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-
-    // HttpClientModule,
-    // AppRoutingModule,
-    // FormsModule,
-    // RouterModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -32,22 +27,6 @@ import { ToastrModule } from 'ngx-toastr';
       registrationStrategy: 'registerWhenStable:30000'
     }),
      BrowserAnimationsModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatSelectModule,
-    // MatRadioModule,
-    // MatCardModule,
-    // ReactiveFormsModule,
-    // LayoutModule,
-    // MatToolbarModule,
-    // MatSidenavModule,
-    // MatIconModule,
-    // MatListModule,
-    // MatMenuModule,
-    // MatTableModule,
-    // MatTabsModule,
-    // MatProgressSpinnerModule,
-    // BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: UserInterceptorService, multi: true }],

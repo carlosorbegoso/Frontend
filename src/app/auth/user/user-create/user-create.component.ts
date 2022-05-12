@@ -33,7 +33,7 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
     this.getRole();
   }
-  save(user: SysUser): void {
+  saveX(user: SysUser): void {
 
     this.userService.save(user).subscribe(
       (data: any) => {
@@ -51,6 +51,21 @@ export class UserCreateComponent implements OnInit {
     }
 
   }
+  save(user: SysUser):void {
+    this.userService.save(user).forEach(
+      (data:any) =>{
+        try {
+          if(data.status == 500)throw data.message
+          this.notificationService.showSuccess("exit", data.message);
+        } catch (e) {
+          this.notificationService.showError('Error', data.message);
+        }
+      }).catch((error) => {
+        this.notificationService.showWarning(error.message, "Not authorization")
+      })
+  }
+
+
   getRole(): void {
     this.roleService.roleAll().subscribe(
       data => {
