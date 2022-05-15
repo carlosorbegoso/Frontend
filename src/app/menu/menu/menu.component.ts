@@ -22,14 +22,15 @@ export class MenuComponent implements OnInit {
     public loaderService: LoaderService,
     private router: Router,
     private tokenService: TokenService,
-    private authService: AuthService) { }
+    private authService: AuthService) {
+  }
 
   ngOnInit(): void {
     if (this.tokenService.getToken) {
       this.isLogged = true;
       this.nameUser = this.tokenService.getUserName();
       this.avatar = this.tokenService.getAvatar();
-    }else{
+    } else {
       this.isLogged = false;
     }
   }

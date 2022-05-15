@@ -47,12 +47,12 @@ import { CommonModule } from '@angular/common';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     // BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    ReactiveFormsModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,

@@ -16,19 +16,19 @@ export class UserCreateComponent implements OnInit {
   hide = true;
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl('auto');
+
   roles: SysRole[] = [];
   users: SysUser = {
     roles: []
   }
-
-
-
   constructor(
     private userService: UserService,
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private roleService: RoleService,
     private notificationService: NotificationService,
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit(): void {
     this.getRole();
