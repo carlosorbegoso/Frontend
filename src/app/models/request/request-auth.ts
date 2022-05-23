@@ -1,8 +1,8 @@
 export class RequestAuth {
-    token:string;
-    roles: string[];
+	token: string;
+	roles: string[];
 
-    // "status": 200,
+	// "status": 200,
 	// "message": "Successfully logged in",
 	// "data": {
 	// 	"userid": "1",

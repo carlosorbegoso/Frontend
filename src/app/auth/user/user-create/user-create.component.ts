@@ -26,8 +26,8 @@ export class UserCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private roleService: RoleService,
     private notificationService: NotificationService,
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
@@ -38,24 +38,24 @@ export class UserCreateComponent implements OnInit {
     this.userService.save(user).subscribe(
       (data: any) => {
         try {
-          if(data.status == 500)throw data.message
+          if (data.status == 500) throw data.message
           this.notificationService.showSuccess("exit", data.message);
         } catch (e) {
           this.notificationService.showError('Error', data.message);
         }
-      },error => {
+      }, error => {
         this.notificationService.showError('Error', "User not authorization");
       }
-    ),err =>{
+    ), err => {
       this.notificationService.showError('Error', err.Error);
     }
 
   }
-  save(user: SysUser):void {
+  save(user: SysUser): void {
     this.userService.save(user).forEach(
-      (data:any) =>{
+      (data: any) => {
         try {
-          if(data.status == 500)throw data.message
+          if (data.status == 500) throw data.message
           this.notificationService.showSuccess("exit", data.message);
         } catch (e) {
           this.notificationService.showError('Error', data.message);

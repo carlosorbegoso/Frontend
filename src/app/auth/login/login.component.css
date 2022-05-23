@@ -1,19 +1,24 @@
 * {
     font-family: 'Red Hat Display', sans-serif;
 }
-html, body, main {
+
+html,
+body,
+main {
     height: 100%;
 }
+
 .panel-left {
     display: flex !important;
     align-items: center;
     background-color: #394867;
 }
+
 .panel-right {
     display: flex !important;
     align-items: center;
     background-color: #F1F6F9;
-    
+
 }
 
 h1 {
@@ -21,6 +26,7 @@ h1 {
     font-size: 60px;
     font-weight: 900;
 }
+
 h2 {
     color: #14274E;
     font-size: 40px;
@@ -57,11 +63,11 @@ h2 {
 
 .links a {
     color: #14274E;
-    
+
 }
 
 @media only screen and (max-width: 767px) {
     .panel-left {
         display: none !important;
     }
-  }
+}

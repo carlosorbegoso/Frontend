@@ -7,23 +7,28 @@
   .sky-container {
     height: 500px;
   }
-  .sky-display-list{
-    display:block ;
+
+  .sky-display-list {
+    display: block;
   }
-  .sky-display-table{
-    display:none;
+
+  .sky-display-table {
+    display: none;
   }
 
 }
+
 @media only screen and (min-width: 492px) {
   .sky-container {
     height: 720px;
   }
-  .sky-display-list{
+
+  .sky-display-list {
     display: none;
   }
-  .sky-display-table{
-    display:block;
+
+  .sky-display-table {
+    display: block;
   }
 }
 
@@ -31,10 +36,12 @@
   .sky-container {
     height: 880px;
   }
-  .sky-display-list{
+
+  .sky-display-list {
     display: none;
   }
-  .sky-display-table{
-    display:block;
+
+  .sky-display-table {
+    display: block;
   }
 }

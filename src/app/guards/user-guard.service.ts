@@ -16,7 +16,7 @@ export class UserGuardService implements CanActivate {
     this.realRol = 'user';
     roles.forEach(rol => {
       switch (rol) {
-        case 'ROLE_ADMIN':this.realRol = 'admin'
+        case 'ROLE_ADMIN': this.realRol = 'admin'
           break;
         case 'ROLE_USER': this.realRol = 'user'
           break;
@@ -29,7 +29,7 @@ export class UserGuardService implements CanActivate {
     });
     if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
       this.router.navigate(['/']);
-    
+
       return false;
     }
     return true;

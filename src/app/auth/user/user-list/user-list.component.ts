@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
   }
 
 
-  findAll(){
+  findAll() {
     this.userService.userFindAll().forEach(
       (data: any) => {
         this.users = data;

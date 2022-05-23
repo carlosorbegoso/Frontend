@@ -33,31 +33,31 @@
             </div>
         </div>
         <div class="overflow-auto">
-            <div class="card-body mb-2 sky-container" >
+            <div class="card-body mb-2 sky-container">
                 <!-- Desktop -->
                 <div class="sky-display-table sky-container">
-                <table class="table table-responsive">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Mobil</th>
-                        <th scope="col">Roles</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor=" let u of users, let i=index">
-                        <th scope="row"> {{+i+1}}</th>
-                        <td>{{u.username}}</td>
-                        <td>{{u.email}}</td>
-                        <td>{{u.mobile}}</td>
-                        <td>{{u.roles}}</td>
-                      </tr>
-                   
-                    </tbody>
-                  </table>
-                  </div>
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Mobil</th>
+                                <th scope="col">Roles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor=" let u of users, let i=index">
+                                <th scope="row"> {{+i+1}}</th>
+                                <td>{{u.username}}</td>
+                                <td>{{u.email}}</td>
+                                <td>{{u.mobile}}</td>
+                                <td>{{u.roles}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
                 <!-- Mobile -->
                 <ol class="list-group sky-display-list" *ngFor=" let u of users, let i=index">
                     <div class="list-group-item list-group-item-action p-2">

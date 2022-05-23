@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-;
 import { AppComponent } from './app.component';
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -30,7 +27,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-     BrowserAnimationsModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: UserInterceptorService, multi: true }],

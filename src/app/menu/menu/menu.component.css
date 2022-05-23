@@ -1,15 +1,15 @@
-
 .img-avatar {
-	width : 60px;
-	border-radius:100%
+  width: 60px;
+  border-radius: 100%
 }
+
 .loader-container {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	background:black;
-	opacity: 0.8;
-	z-index: 99;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.8;
+  z-index: 99;
 }
 
 
@@ -21,9 +21,11 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 body {
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
 }
+
 .loader,
 .loader span,
 .spinner {
@@ -34,21 +36,24 @@ body {
   left: 50%;
   margin: -100px 0 0 -100px;
 }
+
 .loader span {
   line-height: 200px;
   padding-left: 40px;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0);
-  text-shadow: 0 0 0 rgba(255,255,255,0.75), 0 0 2px #1e90ff, 0 0 4px #1e90ff, 0 0 6px #1e90ff, 0 0 8px #1e90ff, 0 0 10px #1e90ff;
+  color: rgba(255, 255, 255, 0);
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.75), 0 0 2px #1e90ff, 0 0 4px #1e90ff, 0 0 6px #1e90ff, 0 0 8px #1e90ff, 0 0 10px #1e90ff;
 }
+
 .spinner {
   border-radius: 50%;
-  box-shadow: 3px 0 1px -1px #fff, 5px 0 5px rgba(30,144,255,0.5), inset -10px 0 10px -5px rgba(30,144,255,0.5);
+  box-shadow: 3px 0 1px -1px #fff, 5px 0 5px rgba(30, 144, 255, 0.5), inset -10px 0 10px -5px rgba(30, 144, 255, 0.5);
   -webkit-animation: loading 1s linear infinite;
-          animation: loading 1s linear infinite;
+  animation: loading 1s linear infinite;
 }
+
 .spinner:before {
   position: absolute;
   width: 160px;
@@ -56,20 +61,24 @@ body {
   margin: 10% 0 0 10%;
   border-radius: 50%;
   content: " ";
-  box-shadow: 2px 0 1px -1px #fff, 10px 0 5px -5px rgba(30,144,255,0.5), inset -3px 0 3px rgba(30,144,255,0.5);
+  box-shadow: 2px 0 1px -1px #fff, 10px 0 5px -5px rgba(30, 144, 255, 0.5), inset -3px 0 3px rgba(30, 144, 255, 0.5);
 }
+
 @-webkit-keyframes loading {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 @keyframes loading {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
