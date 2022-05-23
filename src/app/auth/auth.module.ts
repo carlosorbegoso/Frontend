@@ -24,7 +24,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { AuthRoutingModule } from './auth-routing.module';
 import { CommonModule } from '@angular/common';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -36,10 +36,10 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    // HttpClientModule,
+    FontAwesomeModule,
     AuthRoutingModule,
     FormsModule,
-     RouterModule,
+    RouterModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable

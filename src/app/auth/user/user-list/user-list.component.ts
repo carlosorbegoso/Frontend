@@ -20,6 +20,7 @@ export class UserListComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isLogged: boolean = false;
+  users: SysUser[] = [];
 
   constructor(
     private tokenService: TokenService,
@@ -43,7 +44,7 @@ export class UserListComponent implements OnInit {
   findAll(){
     this.userService.userFindAll().forEach(
       (data: any) => {
-        this.dataUsers = new MatTableDataSource(data);
+        this.users = data;
       }).catch((error: any) => {
         this.notificationService.showWarning(error.message, "Not authorization")
       });
