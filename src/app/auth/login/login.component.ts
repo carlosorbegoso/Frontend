@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenService.getAuthorities();
     }
   }
+  
   onLogin(): void {
     this.auth = new Auth(this.username, this.password)
     this.authService.login(this.auth).subscribe(
