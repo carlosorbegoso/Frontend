@@ -1,49 +1,36 @@
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserInterceptorService } from './interceptor/user-interceptor.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-import { HttpClientModule } from '@angular/common/http';
-import { interceptorProvider } from './interceptor/user-interceptor.service';
-//login
-import { LoginComponent } from './auth/login/login.component';
-//menu
-import { MenuComponent } from './menu/menu/menu.component';
-//user
-import { UserCreateComponent } from './user/user-create/user-create.component';
-import { UserListComponent } from './user/user-list/user-list.component';
+import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    MenuComponent,
-    UserListComponent,
-    UserCreateComponent,
+    AppComponent
   ],
   imports: [
-    CommonModule,
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule,
+    FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [interceptorProvider],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: UserInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

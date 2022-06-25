@@ -9,7 +9,7 @@ import { Auth } from '../models/response/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  private URL = `${environment.API_URL}/auth/`;
+  private URL = `${environment.API_URL}/api/auth/`;
   constructor(private HttpClient: HttpClient) { }
 
   public login(auth: Auth): Observable<RequestAuth> {

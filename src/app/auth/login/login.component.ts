@@ -12,9 +12,9 @@ import { TokenService } from 'src/app/service/token.service';
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLoginFail = false;
-  auth:Auth;
-  password : string;
-  username : string;
+  auth: Auth;
+  password: string;
+  username: string;
   roles: string[] = [];
   messageError: string;
 
@@ -22,15 +22,16 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private tokenService: TokenService,
     private router: Router
-  ) {}
+  ) { }
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
+    if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
     }
   }
-  onLogin():void {
+  
+  onLogin(): void {
     this.auth = new Auth(this.username, this.password)
     this.authService.login(this.auth).subscribe(
       (data: any) => {
@@ -41,10 +42,11 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.data.roles);
         this.tokenService.setAvatar(data.data.avatar);
         this.roles = data.roles;
-      },message => {
+        this.router.navigate(['auth/login'])
+      }, message => {
         this.isLogged = false;
         this.isLoginFail = true;
-        this.messageError =  message.error.message + " " + message.statusText; 
+        this.messageError = message.error.message + " " + message.statusText;
       }
     )
   };

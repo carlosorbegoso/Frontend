@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+app.use(cors())
 // Serve static files
 app.use(express.static(__dirname + '/dist/frontend'));
 

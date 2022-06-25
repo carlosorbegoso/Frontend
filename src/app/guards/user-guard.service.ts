@@ -11,16 +11,22 @@ export class UserGuardService implements CanActivate {
   constructor(private tokenService: TokenService, private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const expectedRol = route.data['expectedRol'];
+    console.log(expectedRol);
     const roles = this.tokenService.getAuthorities();
-    console.log(roles);
     this.realRol = 'user';
     roles.forEach(rol => {
-      console.log(rol)
-      if (rol === 'ROLE_ADMIN') {
-        this.realRol = 'admin';
+      switch (rol) {
+        case 'ROLE_ADMIN': this.realRol = 'admin'
+          break;
+        case 'ROLE_USER': this.realRol = 'user'
+          break;
+        default:
+          break;
       }
+      // if (rol === 'ROLE_ADMIN') {
+      //   this.realRol = 'admin';
+      // }
     });
-    console.log("real role"+this.realRol);
     if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
       this.router.navigate(['/']);
 

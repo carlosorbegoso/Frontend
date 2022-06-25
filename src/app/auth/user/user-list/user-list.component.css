@@ -1,0 +1,47 @@
+/* .sky-container{
+  height: 880px;
+} */
+
+
+@media only screen and (max-width: 600px) {
+  .sky-container {
+    height: 500px;
+  }
+
+  .sky-display-list {
+    display: block;
+  }
+
+  .sky-display-table {
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 492px) {
+  .sky-container {
+    height: 720px;
+  }
+
+  .sky-display-list {
+    display: none;
+  }
+
+  .sky-display-table {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .sky-container {
+    height: 880px;
+  }
+
+  .sky-display-list {
+    display: none;
+  }
+
+  .sky-display-table {
+    display: block;
+  }
+}
